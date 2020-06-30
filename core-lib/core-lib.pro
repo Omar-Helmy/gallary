@@ -32,7 +32,8 @@ SOURCES += \
     dbmanager.cpp \
     gallery.cpp \
     picture.cpp \
-    picturedao.cpp
+    picturedao.cpp \
+    picturemodel.cpp \
 
 # search path for includes
 #INCLUDEPATH += Headers
@@ -45,7 +46,8 @@ HEADERS += \
     dbmanager.h \
     gallery.h \
     picture.h \
-    picturedao.h
+    picturedao.h \
+    picturemodel.h \
 
 # Default rules for deployment:
 # install path of shared lib
