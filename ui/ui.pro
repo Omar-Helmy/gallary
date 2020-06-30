@@ -2,6 +2,12 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+# name of exe
+TARGET = gallery-desktop
+
+# type is desktop UI
+TEMPLATE = app
+
 CONFIG += c++14
 
 # The following define makes your compiler emit warnings if you use
@@ -24,6 +30,18 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui
+
+
+# Link the core-lib to this app: (win and Linux)
+# libs are added to var: LIBS += -L<pathToLibrary> -l<libraryName>
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../core-lib/release/ -lcore-lib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../core-lib/debug/ -lcore-lib
+else:unix: LIBS += -L$$OUT_PWD/../core-lib/ -lcore-lib
+# specify core-lib header files
+# $$OUT_PWD The absolute path to the output directory
+# $$PWD     The absolute path of the current .pro file
+INCLUDEPATH += $$PWD/../core-lib
+DEPENDPATH += $$PWD/../core-lib
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
